@@ -1,0 +1,2 @@
+# API key
+API_KEY_app = "15cc8f5b012245f074d4057e50112674"

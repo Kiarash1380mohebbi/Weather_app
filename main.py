@@ -1,6 +1,5 @@
 from customtkinter import *
-from sqlite3 import *
-
+from settings.Functions import *
 
 win = CTk()
 win.title('Weather Gate')
@@ -24,15 +23,21 @@ entry_city_name = CTkEntry(Frame_entry_and_button,190,50,border_width=1,corner_r
                            ,placeholder_text_color="#FF5100",font=('Arial',20))
 
 btn_search = CTkButton(Frame_entry_and_button,150,50,text='Search',corner_radius=15,fg_color="#FF5100",
-                       text_color="#FFFFFF",font=font_text)
+                       text_color="#FFFFFF",font=font_text,command=search_btn(entry_city_name))
+
+btn_delete = CTkButton(Frame_entry_and_button,150,50,text='Delete',corner_radius=15,fg_color="#FF5100",
+                       text_color="#FFFFFF",font=font_text, command=delete_btn(text_box,load_data))
 
 
 Frame_app.pack_configure(padx=10,pady=10)
 Fram_textbox.pack_configure(padx=10,pady=10,side='right')
 Frame_entry_and_button.pack_configure(padx=10,pady=10,side='left')
 
+
 text_box.pack_configure(padx=10,pady=10)
 entry_city_name.pack(padx=10,pady=10)
 btn_search.pack(padx=10,pady=10)
+btn_delete.pack(padx=10,pady=10)
+
 
 win.mainloop()
